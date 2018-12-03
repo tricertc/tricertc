@@ -5,7 +5,7 @@
   "author": "Tim Rice <timrice@gmail.com>",
   "license": "MIT",
   "bin": {
-    "tricertc": "./src/app.js"
+    "tricertc": "./bin/tricertc.js"
   },
   "dependencies": {
     "unzip": "^0.1.11"
