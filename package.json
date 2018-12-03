@@ -1,0 +1,13 @@
+{
+  "name": "tricertc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tim Rice <timrice@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "tricertc": "./src/app.js"
+  },
+  "dependencies": {
+    "unzip": "^0.1.11"
+  }
+}
