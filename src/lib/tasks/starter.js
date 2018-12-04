@@ -1,9 +1,16 @@
 const unzip = require('unzip')
+const path = require('path')
 const fs = require('fs')
 
 const { download } = require('../utils/http-utils')
 
-function unpack(template, filename) {
+function unpack(template, filename, destination = './') {
+  const outDir = path.resolve(destination)
+
+  if (!fs.existsSync(outDir)) {
+    fs.mkdirSync(outDir)
+  }
+
   fs.createReadStream(filename)
     .pipe(unzip.Parse())
     .on('entry', entry => {
@@ -27,10 +34,10 @@ function unpack(template, filename) {
     })
 }
 
-module.exports = async (template) => {
+module.exports = async (template, destination) => {
   const url = `https://codeload.github.com/tricertc/${template}-starter/zip/master`
   const filename = template + '.zip'
 
   await download(url, filename)
-  unpack(template, filename)
+  unpack(template, filename, destination)
 }
