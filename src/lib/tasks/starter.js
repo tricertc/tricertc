@@ -29,6 +29,7 @@ function unpack(template, filename, outdir = './') {
     })
     .on('close', () => {
       fs.unlinkSync(filename)
+      console.log(`Installed ${template} starter template to ${outdir}`)
     })
 }
 
